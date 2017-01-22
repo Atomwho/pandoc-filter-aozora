@@ -9,7 +9,11 @@ sys.setdefaultencoding('utf-8')
 
 
 def aozora_to_html_ruby(text):
-    '''難読漢字でも読めますよ。'''
+    '''aozorabunko format ruby to html
+    e.g,
+    難読|漢字《かんじ》でも読《よ》めますよ。
+    to
+    難読|<ruby>漢字<rt>かんじ</rt></ruby>でも<ruby>読<rt>よ</rt></ruby>めますよ'''
     s = text.decode('utf-8')
     pattern = ur'｜?([\u4e00-\u9fff]+?)《([\u3040-\u309f]+?)》'
     repl = ur"<ruby>\1<rt>\2</rt></ruby>"
